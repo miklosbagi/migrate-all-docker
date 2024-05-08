@@ -24,7 +24,7 @@ RUN if [ ! -z "$MIGRATE_DB_SUPPORT" ]; then \
     fi
 
 # Shrink
-FROM busybox
+FROM busybox:1.36.1
 COPY --from=builder /etc/ssl/certs /etc/ssl/certs
 COPY --from=builder /migrate-build/migrate /usr/local/bin/migrate
 RUN ln -s /usr/local/bin/migrate /migrate
