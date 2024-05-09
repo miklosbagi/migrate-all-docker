@@ -13,6 +13,6 @@ The following options are available to use for the docker build command:
                       sqlserver firebird neo4j pgx pgx5 rqlite \
                       sqlite sqlite3 sqlcipher" \
   MIGRATE_TAG="v4.17.1" \
-  docker buildx build --platform linux/amd64,linux/arm64 -t my-migrate:all-latest
+  docker buildx build --platform linux/amd64,linux/arm64 --build-arg "MIGRADE_DB_SUPPORT=$MIGRATE_DB_SUPPORT"--build-arg "MIGRATE_TAG=$MIGRATE_TAG" -t my-migrate:all-latest
 ```
 
