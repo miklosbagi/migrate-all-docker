@@ -11,8 +11,13 @@ The following options are available to use for the docker build command:
   MIGRATE_DB_SUPPORT="postgres mysql redshift cassandra spanner \
                       cockroachdb yugabytedb clickhouse mongodb \
                       sqlserver firebird neo4j pgx pgx5 rqlite \
-                      sqlite sqlite3 sqlcipher" \
-  MIGRATE_TAG="v4.17.1" \
-  docker buildx build --platform linux/amd64,linux/arm64 --build-arg "MIGRADE_DB_SUPPORT=$MIGRATE_DB_SUPPORT"--build-arg "MIGRATE_TAG=$MIGRATE_TAG" -t my-migrate:all-latest
+                      sqlite sqlite3 sqlcipher"
+  MIGRATE_TAG="v4.17.1"
+
+  docker buildx build \
+    --platform linux/amd64,linux/arm64 \
+    --build-arg "MIGRADE_DB_SUPPORT=$MIGRATE_DB_SUPPORT" \
+    --build-arg "MIGRATE_TAG=$MIGRATE_TAG" \
+    -t my-migrate:all-latest
 ```
 
