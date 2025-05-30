@@ -1,7 +1,7 @@
-FROM golang:1.22.1 AS builder
+FROM golang:1.24.3 AS builder
 
 ARG MIGRATE_DB_SUPPORT="sqlite3 postgres"
-ARG MIGRATE_TAG="v4.17.1"
+ARG MIGRATE_TAG="v4.18.1"
 
 RUN apt update
 RUN apt install -y git ca-certificates
@@ -29,7 +29,7 @@ RUN if [ ! -z "$MIGRATE_DB_SUPPORT" ]; then \
 
 
 # Shrink
-FROM busybox:1.36.1
+FROM busybox:1.37.0
 COPY --from=builder /etc/ssl/certs /etc/ssl/certs
 COPY --from=builder /migrate-build/migrate /usr/local/bin/migrate
 RUN ln -s /usr/local/bin/migrate /migrate
