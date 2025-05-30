@@ -1,7 +1,7 @@
 FROM golang:1.24.3 AS builder
 
 ARG MIGRATE_DB_SUPPORT="sqlite3 postgres"
-ARG MIGRATE_TAG="v4.18.1"
+ARG MIGRATE_TAG="v4.18.2"
 
 RUN apt update
 RUN apt install -y git ca-certificates
